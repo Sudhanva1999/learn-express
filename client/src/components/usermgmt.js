@@ -70,6 +70,7 @@ const UserManagement = () => {
         setSearchEmail([{id: 404, email: 'Not Found'}]);
       }
       else {
+        console.log(data);
         setSearchEmail(data);
       }
       setShowEmail(true);

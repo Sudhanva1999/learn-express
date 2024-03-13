@@ -40,7 +40,9 @@ app.get('/read/usernames', (req, res) => {
 app.use('/read/username/:name', addMsgToRequest);
 app.get('/read/username/:name', (req, res) => {
   let usernames = req.users.filter((user) => {return user.username === req.params.name});
-  console.log(usernames);
+  if (!usernames[0]){
+      return res.status(404).json({error:{message:'User not Found', status:404}});
+  }
   res.send(usernames);
 });
 
